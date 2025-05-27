@@ -13,7 +13,7 @@
         <li>
           <router-link
             to="/procesar"
-            class="flex items-center p-3  rounded-lg text-white hover:bg-gray-100 dark:hover:bg-blue-700 group"
+            class="flex items-center p-3  rounded-lg text-white hover:bg-blue-700 group"
           >
             <img src="../assets/convert.png" class="shrink-0 w-9 h-9" alt="icon-procesar">
             <span class="ms-3">Extracción</span>

@@ -228,9 +228,6 @@ async function handleFileChange(event) {
 async function iniciarProcesamiento() {
   processing.value = true;
 
-  //llamando a websocket
-  conectarWebSocketProgreso(fileName.value.replace(/\.pdf$/i, ""));
-
   try {
     const resultado = await procesar_pdf({
       filename: fileName.value,
@@ -342,36 +339,5 @@ function nameFileValidate(name) {
   }
   return true;
 }
-
-
-
-/**
- * return progress bar
- * @param filename 
- * @returns
- */
-function conectarWebSocketProgreso(filename) {
-  // Cambia la URL si tu backend no está en localhost:8000
-  ws = new WebSocket(`ws://localhost:8000/ws/status/${filename}`);
-
-  ws.onmessage = (event) => {
-    const data = JSON.parse(event.data);
-    mdProgress.value = data.progress;
-    mdStatus.value = data.status;
-    
-    console.log(mdProgress.value, mdStatus.value);
-    // Aquí puedes mostrar la barra de progreso usando mdProgress y mdStatus
-    // Ejemplo: mostrar barra si mdStatus.value !== 'done'
-  };
-
-  ws.onclose = () => {
-    console.log("WebSocket cerrado");
-  };
-
-  ws.onerror = (e) => {
-    console.error("WebSocket error:", e);
-  };
-}
-
 
 </script>

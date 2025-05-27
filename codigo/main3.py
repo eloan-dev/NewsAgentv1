@@ -8,12 +8,6 @@ import json
 from content_deduplicator import ContentDeduplicator
 
 
-# actualizar estado de proceso de la barra de avance
-def actualizar_estado_md(filename, progress, status="processing"):
-    status_path = os.path.join("input", "Stats", f"stats_bart_{filename}.json")
-    with open(status_path, "w", encoding="utf-8") as f:
-        json.dump({"progress": progress, "status": status}, f)
-
 # Asegurarse de que el directorio 'lib' esté en el path para imports
 current_dir = os.path.dirname(os.path.abspath(__file__))
 lib_path = os.path.join(current_dir, 'lib')

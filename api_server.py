@@ -114,7 +114,7 @@ async def urls_extraidas(namefile: str):
 #test produccion
 @app.get("/debug/archivos")
 async def listar_archivos():
-    carpeta = os.path.join("input", "in")
+    carpeta = os.path.join("input", "In")
     abs_carpeta = os.path.abspath(carpeta)
     if not os.path.exists(carpeta):
         return {"error": "No existe la carpeta", "carpeta": carpeta, "abs_carpeta": abs_carpeta}

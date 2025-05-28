@@ -95,7 +95,7 @@ async def urls_extraidas(namefile: str):
     Devuelve la lista de URLs extraídas leyendo el archivo CSV correspondiente.
     La URL está en la segunda columna del CSV.
     """
-    csv_path = os.path.join("input", "in", f"links_extracted_{namefile}.csv")
+    csv_path = os.path.join("input", "In", f"links_extracted_{namefile}.csv")
     if not os.path.exists(csv_path):
         return JSONResponse(status_code=404, content={"error": "Archivo CSV no encontrado"})
     try:

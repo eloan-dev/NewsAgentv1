@@ -18817,3 +18817,38 @@ violations {
 2025-05-28 11:20:48,645 - main_orchestrator - INFO - ==================================================
 2025-05-28 11:20:48,645 - main_orchestrator - INFO - PIPELINE FINALIZADO en 0.53 segundos.
 2025-05-28 11:20:48,645 - main_orchestrator - INFO - ==================================================
+2025-05-28 15:12:41,698 - main_orchestrator - INFO - ==================================================
+2025-05-28 15:12:41,698 - main_orchestrator - INFO - INICIANDO PIPELINE DE SCRAPING
+2025-05-28 15:12:41,699 - main_orchestrator - INFO - Usando fecha: 12052025
+2025-05-28 15:12:41,699 - main_orchestrator - INFO - ==================================================
+2025-05-28 15:12:41,703 - lib.config_manager - INFO - Configuración cargada desde C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\config.yaml
+2025-05-28 15:12:41,717 - lib.config_manager - INFO - Clave API de Google cargada desde C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\credentials/api_keys.yaml
+2025-05-28 15:12:41,718 - main_orchestrator - INFO - Configuración y rutas cargadas.
+2025-05-28 15:12:41,719 - lib.history_tracker - INFO - Historial cargado desde C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\history\processed_urls.json con 201 URLs.
+2025-05-28 15:12:41,722 - main_orchestrator - INFO - Deduplicador optimizado inicializado correctamente
+2025-05-28 15:12:41,724 - lib.request_utils - INFO - Sesión global con reintentos inicializada
+2025-05-28 15:12:41,724 - lib.api_client - INFO - API Gemini configurada con modelo: gemini-1.5-pro-latest
+2025-05-28 15:12:41,725 - lib.image_processor - INFO - Cliente Gemini API inicializado con modelo gemini-1.5-pro-latest
+2025-05-28 15:12:41,725 - main_orchestrator - INFO - Componentes inicializados (History, Scraper, ImageProcessor, FacebookProcessor).
+2025-05-28 15:12:41,725 - main_orchestrator - INFO - --- Paso 1: Extrayendo enlaces del PDF ---
+2025-05-28 15:12:41,850 - lib.pdf_processor - INFO - Abriendo PDF: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\12052025.pdf (4 páginas)
+2025-05-28 15:12:42,183 - lib.pdf_processor - INFO - Se extrajeron 29 enlaces URI (no mailto) de 12052025.pdf.
+2025-05-28 15:12:42,183 - main_orchestrator - INFO - PDF procesado en 0.46 seg. Enlaces encontrados: 29
+2025-05-28 15:12:42,197 - lib.file_manager - INFO - Datos guardados en CSV: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\In\links_extracted_12052025.csv
+2025-05-28 15:12:42,198 - main_orchestrator - INFO - --- Paso 1.1: Extrayendo texto del PDF por secciones ---
+2025-05-28 15:12:42,199 - lib.text_extractor - INFO - Abriendo PDF para extracción de texto: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\12052025.pdf (4 páginas)
+2025-05-28 15:12:42,262 - lib.text_extractor - INFO - Texto del PDF extraído y guardado en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Out\scraped_pdf_12052025\pdf_text_12052025.json
+2025-05-28 15:12:42,262 - lib.text_extractor - INFO - Se encontraron 6 secciones con un total de 24 párrafos
+2025-05-28 15:12:42,263 - main_orchestrator - INFO - Texto del PDF extraído en 0.06 seg. Guardado en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Out\scraped_pdf_12052025\pdf_text_12052025.json
+2025-05-28 15:12:42,263 - main_orchestrator - INFO - --- Paso 2: Filtrando URLs por historial ---
+2025-05-28 15:12:42,263 - lib.history_tracker - INFO - Filtradas 29 URLs ya procesadas del lote actual.
+2025-05-28 15:12:42,264 - main_orchestrator - INFO - URLs nuevas para procesar: 0 (de 29 total)
+2025-05-28 15:12:42,264 - main_orchestrator - INFO - No hay URLs nuevas para procesar en esta ejecución.
+2025-05-28 15:12:42,266 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Stats\stats_12052025.json
+2025-05-28 15:12:42,266 - lib.file_manager - INFO - Estadísticas guardadas: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Stats\stats_12052025.json
+2025-05-28 15:12:42,266 - lib.file_manager - INFO - Contenido estadísticas: {'run_timestamp': '2025-05-28T15:12:42.265092', 'date_processed': '12052025', 'total_urls_in_pdf': 29, 'new_urls_processed_count': 0, 'history_total_urls': 201, 'info': 'No new URLs to process in this run.'}
+2025-05-28 15:12:42,267 - main_orchestrator - INFO - Estadísticas guardadas en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Stats\stats_12052025.json
+2025-05-28 15:12:42,267 - main_orchestrator - INFO - --- Limpieza Final ---
+2025-05-28 15:12:42,267 - main_orchestrator - INFO - ==================================================
+2025-05-28 15:12:42,267 - main_orchestrator - INFO - PIPELINE FINALIZADO en 0.57 segundos.
+2025-05-28 15:12:42,268 - main_orchestrator - INFO - ==================================================

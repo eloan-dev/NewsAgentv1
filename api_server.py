@@ -2,7 +2,6 @@
 import os
 import sys
 import csv
-import asyncio
 from fastapi import FastAPI, UploadFile, WebSocket, File
 from fastapi.responses import JSONResponse,FileResponse
 from pydantic import BaseModel

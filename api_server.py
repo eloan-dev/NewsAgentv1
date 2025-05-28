@@ -115,11 +115,14 @@ async def urls_extraidas(namefile: str):
 @app.get("/debug/archivos")
 async def listar_archivos():
     carpeta = os.path.join("input", "in")
+    abs_carpeta = os.path.abspath(carpeta)
+    if not os.path.exists(carpeta):
+        return {"error": "No existe la carpeta", "carpeta": carpeta, "abs_carpeta": abs_carpeta}
     try:
         archivos = os.listdir(carpeta)
-        return {"archivos": archivos}
+        return {"archivos": archivos, "carpeta": carpeta, "abs_carpeta": abs_carpeta}
     except Exception as e:
-        return JSONResponse(status_code=500, content={"error": str(e)})
+        return {"error": str(e), "carpeta": carpeta, "abs_carpeta": abs_carpeta}
 
 
 #----agregando CORS para permitir peticiones desde cualquier origen

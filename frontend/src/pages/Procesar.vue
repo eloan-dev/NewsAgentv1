@@ -71,7 +71,7 @@
         </p>
       </div>
 
-      <div v-if="processed && mdStatus !== 'done'" class="w-full mt-6">
+      <!-- <div v-if="processed && mdStatus !== 'done'" class="w-full mt-6">
         <div class="w-full bg-gray-200 rounded-full h-4">
           <div
             class="bg-green-500 h-4 rounded-full transition-all duration-300"
@@ -79,7 +79,7 @@
           ></div>
         </div>
         <p class="text-green-500 mt-2">Procesando... {{ mdProgress }}%</p>
-      </div>
+      </div> -->
 
 
 

@@ -86,8 +86,8 @@ def run_pipeline(custom_date_str=None):
     logger.info(f"Usando fecha: {today_date_for_filename}")
     logger.info("==================================================")
 
-    #actualizando estado de proceso de la barra de avance
-    actualizar_estado_md(today_date_for_filename, 0, "processing")
+    # #actualizando estado de proceso de la barra de avance
+    # actualizar_estado_md(today_date_for_filename, 0, "processing")
 
     # --- 1. Cargar Configuración y Rutas ---
     try:
@@ -234,8 +234,8 @@ def run_pipeline(custom_date_str=None):
         # --- 5. Clasificar URLs con sistema mejorado ---
         logger.info("--- Paso 3: Clasificando URLs ---")
         
-        # actualizando estado de proceso de la barra de avance
-        actualizar_estado_md(today_date_for_filename, 20, "processing")
+        # # actualizando estado de proceso de la barra de avance
+        # actualizar_estado_md(today_date_for_filename, 20, "processing")
 
         # Clasificación mejorada con subcategorías
         if ENHANCED_MODULES_AVAILABLE:
@@ -354,8 +354,8 @@ def run_pipeline(custom_date_str=None):
         # --- 8. Procesar Imágenes Descargadas (API) ---
         logger.info("--- Paso 6: Procesando Imágenes Descargadas (API) ---")
         
-        # actualizar estado de proceso de la barra de avance
-        actualizar_estado_md(today_date_for_filename, 40, "processing")
+        # # actualizar estado de proceso de la barra de avance
+        # actualizar_estado_md(today_date_for_filename, 40, "processing")
 
         # Comprobar si hay imágenes descargadas, ya sea de la ejecución actual o existentes
         if downloaded_image_metadata:
@@ -406,8 +406,8 @@ def run_pipeline(custom_date_str=None):
         # --- 9. Procesar URLs de Facebook ---
         logger.info("--- Paso 7: Procesando URLs de Facebook ---")
         
-        #actualizar estado de proceso de la barra de avance
-        actualizar_estado_md(today_date_for_filename, 50, "processing")
+        # #actualizar estado de proceso de la barra de avance
+        # actualizar_estado_md(today_date_for_filename, 50, "processing")
 
         # Búsqueda de URLs de Facebook en archivos sociales
         facebook_links = []
@@ -487,8 +487,8 @@ def run_pipeline(custom_date_str=None):
         logger.info("--- Paso 9: Extrayendo Texto de PDFs de Facebook ---")
         facebook_pdf_texts = {}
         
-        #actualizar estado de proceso de la barra de avance
-        actualizar_estado_md(today_date_for_filename, 75, "processing")
+        # #actualizar estado de proceso de la barra de avance
+        # actualizar_estado_md(today_date_for_filename, 75, "processing")
 
         if processed_data["facebook"]:
             pdf_text_start = time.time()
@@ -740,8 +740,8 @@ def run_pipeline(custom_date_str=None):
         logger.info(f"PIPELINE FINALIZADO en {total_duration:.2f} segundos.")
         logger.info("==================================================")
 
-        #actualizar estado de proceso de la barra de avance
-        actualizar_estado_md(today_date_for_filename, 100, "processing")
+        # #actualizar estado de proceso de la barra de avance
+        # actualizar_estado_md(today_date_for_filename, 100, "processing")
 
 # -------------------------------
 # Punto de entrada

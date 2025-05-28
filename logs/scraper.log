@@ -18852,3 +18852,1417 @@ violations {
 2025-05-28 15:12:42,267 - main_orchestrator - INFO - ==================================================
 2025-05-28 15:12:42,267 - main_orchestrator - INFO - PIPELINE FINALIZADO en 0.57 segundos.
 2025-05-28 15:12:42,268 - main_orchestrator - INFO - ==================================================
+2025-05-28 17:24:12,254 - main_orchestrator - INFO - ==================================================
+2025-05-28 17:24:12,255 - main_orchestrator - INFO - INICIANDO PIPELINE DE SCRAPING
+2025-05-28 17:24:12,255 - main_orchestrator - INFO - Usando fecha: 12052025
+2025-05-28 17:24:12,256 - main_orchestrator - INFO - ==================================================
+2025-05-28 17:24:12,258 - lib.config_manager - INFO - Configuración cargada desde C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\config.yaml
+2025-05-28 17:24:12,260 - lib.config_manager - INFO - Clave API de Google cargada desde C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\credentials/api_keys.yaml
+2025-05-28 17:24:12,261 - main_orchestrator - INFO - Configuración y rutas cargadas.
+2025-05-28 17:24:12,263 - lib.history_tracker - INFO - Historial cargado desde C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\history\processed_urls.json con 201 URLs.
+2025-05-28 17:24:12,265 - main_orchestrator - INFO - Deduplicador optimizado inicializado correctamente
+2025-05-28 17:24:12,266 - lib.request_utils - INFO - Sesión global con reintentos inicializada
+2025-05-28 17:24:12,266 - lib.api_client - INFO - API Gemini configurada con modelo: gemini-1.5-pro-latest
+2025-05-28 17:24:12,266 - lib.image_processor - INFO - Cliente Gemini API inicializado con modelo gemini-1.5-pro-latest
+2025-05-28 17:24:12,267 - main_orchestrator - INFO - Componentes inicializados (History, Scraper, ImageProcessor, FacebookProcessor).
+2025-05-28 17:24:12,267 - main_orchestrator - INFO - --- Paso 1: Extrayendo enlaces del PDF ---
+2025-05-28 17:24:12,425 - lib.pdf_processor - INFO - Abriendo PDF: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\12052025.pdf (4 páginas)
+2025-05-28 17:24:12,819 - lib.pdf_processor - INFO - Se extrajeron 29 enlaces URI (no mailto) de 12052025.pdf.
+2025-05-28 17:24:12,819 - main_orchestrator - INFO - PDF procesado en 0.55 seg. Enlaces encontrados: 29
+2025-05-28 17:24:12,846 - lib.file_manager - INFO - Datos guardados en CSV: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\In\links_extracted_12052025.csv
+2025-05-28 17:24:12,846 - main_orchestrator - INFO - --- Paso 1.1: Extrayendo texto del PDF por secciones ---
+2025-05-28 17:24:12,847 - lib.text_extractor - INFO - Abriendo PDF para extracción de texto: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\12052025.pdf (4 páginas)
+2025-05-28 17:24:12,929 - lib.text_extractor - INFO - Texto del PDF extraído y guardado en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Out\scraped_pdf_12052025\pdf_text_12052025.json
+2025-05-28 17:24:12,929 - lib.text_extractor - INFO - Se encontraron 6 secciones con un total de 24 párrafos
+2025-05-28 17:24:12,929 - main_orchestrator - INFO - Texto del PDF extraído en 0.08 seg. Guardado en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Out\scraped_pdf_12052025\pdf_text_12052025.json
+2025-05-28 17:24:12,930 - main_orchestrator - INFO - --- Paso 2: Filtrando URLs por historial ---
+2025-05-28 17:24:12,930 - lib.history_tracker - INFO - Filtradas 29 URLs ya procesadas del lote actual.
+2025-05-28 17:24:12,931 - main_orchestrator - INFO - URLs nuevas para procesar: 0 (de 29 total)
+2025-05-28 17:24:12,931 - main_orchestrator - INFO - No hay URLs nuevas para procesar en esta ejecución.
+2025-05-28 17:24:12,932 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Stats\stats_12052025.json
+2025-05-28 17:24:12,932 - lib.file_manager - INFO - Estadísticas guardadas: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Stats\stats_12052025.json
+2025-05-28 17:24:12,933 - lib.file_manager - INFO - Contenido estadísticas: {'run_timestamp': '2025-05-28T17:24:12.931593', 'date_processed': '12052025', 'total_urls_in_pdf': 29, 'new_urls_processed_count': 0, 'history_total_urls': 201, 'info': 'No new URLs to process in this run.'}
+2025-05-28 17:24:12,933 - main_orchestrator - INFO - Estadísticas guardadas en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Stats\stats_12052025.json
+2025-05-28 17:24:12,933 - main_orchestrator - INFO - --- Limpieza Final ---
+2025-05-28 17:24:12,934 - main_orchestrator - INFO - ==================================================
+2025-05-28 17:24:12,934 - main_orchestrator - INFO - PIPELINE FINALIZADO en 0.68 segundos.
+2025-05-28 17:24:12,935 - main_orchestrator - INFO - ==================================================
+2025-05-28 17:24:33,659 - main_orchestrator - INFO - ==================================================
+2025-05-28 17:24:33,660 - main_orchestrator - INFO - INICIANDO PIPELINE DE SCRAPING
+2025-05-28 17:24:33,660 - main_orchestrator - INFO - Usando fecha: 15052025
+2025-05-28 17:24:33,661 - main_orchestrator - INFO - ==================================================
+2025-05-28 17:24:33,663 - lib.config_manager - INFO - Configuración cargada desde C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\config.yaml
+2025-05-28 17:24:33,664 - lib.config_manager - INFO - Clave API de Google cargada desde C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\credentials/api_keys.yaml
+2025-05-28 17:24:33,666 - main_orchestrator - INFO - Configuración y rutas cargadas.
+2025-05-28 17:24:33,667 - lib.history_tracker - INFO - Historial cargado desde C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\history\processed_urls.json con 201 URLs.
+2025-05-28 17:24:33,668 - main_orchestrator - INFO - Deduplicador optimizado inicializado correctamente
+2025-05-28 17:24:33,668 - lib.api_client - INFO - API Gemini configurada con modelo: gemini-1.5-pro-latest
+2025-05-28 17:24:33,669 - lib.image_processor - INFO - Cliente Gemini API inicializado con modelo gemini-1.5-pro-latest
+2025-05-28 17:24:33,669 - main_orchestrator - INFO - Componentes inicializados (History, Scraper, ImageProcessor, FacebookProcessor).
+2025-05-28 17:24:33,670 - main_orchestrator - INFO - --- Paso 1: Extrayendo enlaces del PDF ---
+2025-05-28 17:24:33,780 - lib.pdf_processor - INFO - Abriendo PDF: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\15052025.pdf (4 páginas)
+2025-05-28 17:24:34,124 - lib.pdf_processor - INFO - Se extrajeron 33 enlaces URI (no mailto) de 15052025.pdf.
+2025-05-28 17:24:34,125 - main_orchestrator - INFO - PDF procesado en 0.45 seg. Enlaces encontrados: 33
+2025-05-28 17:24:34,138 - lib.file_manager - INFO - Datos guardados en CSV: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\In\links_extracted_15052025.csv
+2025-05-28 17:24:34,138 - main_orchestrator - INFO - --- Paso 1.1: Extrayendo texto del PDF por secciones ---
+2025-05-28 17:24:34,140 - lib.text_extractor - INFO - Abriendo PDF para extracción de texto: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\15052025.pdf (4 páginas)
+2025-05-28 17:24:34,199 - lib.text_extractor - INFO - Texto del PDF extraído y guardado en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Out\scraped_pdf_15052025\pdf_text_15052025.json
+2025-05-28 17:24:34,200 - lib.text_extractor - INFO - Se encontraron 6 secciones con un total de 23 párrafos
+2025-05-28 17:24:34,200 - main_orchestrator - INFO - Texto del PDF extraído en 0.06 seg. Guardado en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Out\scraped_pdf_15052025\pdf_text_15052025.json
+2025-05-28 17:24:34,200 - main_orchestrator - INFO - --- Paso 2: Filtrando URLs por historial ---
+2025-05-28 17:24:34,200 - main_orchestrator - INFO - URLs nuevas para procesar: 33 (de 33 total)
+2025-05-28 17:24:34,200 - main_orchestrator - INFO - --- Paso 2.1: Analizando duplicados basados en contenido ---
+2025-05-28 17:24:34,202 - selenium_extractor - INFO - SeleniumContentExtractor inicializado con caché en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\cache\dedup\content
+2025-05-28 17:24:34,202 - content_deduplicator - INFO - ContentDeduplicator inicializado con caché en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\cache\dedup
+2025-05-28 17:24:34,203 - content_deduplicator - INFO - Analizando 33 URLs para encontrar duplicados...
+2025-05-28 17:24:34,204 - content_deduplicator - INFO - Procesando 9 URLs del dominio elperuano.pe
+2025-05-28 17:24:34,212 - selenium_extractor - INFO - Extrayendo contenido de URL: https://busquedas.elperuano.pe/dispositivo/NL/2399538-1 (tipo: news)
+2025-05-28 17:24:56,117 - selenium_extractor - INFO - Extrayendo contenido de URL: https://busquedas.elperuano.pe/dispositivo/NL/2399538-14 (tipo: news)
+2025-05-28 17:25:03,194 - selenium_extractor - INFO - Extrayendo contenido de URL: https://busquedas.elperuano.pe/dispositivo/NL/2398776-1 (tipo: news)
+2025-05-28 17:25:13,004 - selenium_extractor - INFO - Extrayendo contenido de URL: https://busquedas.elperuano.pe/dispositivo/NL/2399009-1 (tipo: news)
+2025-05-28 17:25:22,239 - selenium_extractor - INFO - Extrayendo contenido de URL: https://busquedas.elperuano.pe/dispositivo/NL/2399012-1 (tipo: news)
+2025-05-28 17:25:31,514 - selenium_extractor - INFO - Extrayendo contenido de URL: https://busquedas.elperuano.pe/dispositivo/NL/2399013-1 (tipo: news)
+2025-05-28 17:25:40,889 - selenium_extractor - INFO - Extrayendo contenido de URL: https://busquedas.elperuano.pe/dispositivo/NL/2398937-1 (tipo: news)
+2025-05-28 17:25:50,474 - selenium_extractor - INFO - Extrayendo contenido de URL: https://busquedas.elperuano.pe/dispositivo/NL/2399144-1 (tipo: news)
+2025-05-28 17:25:57,589 - content_deduplicator - INFO - Procesando 2 URLs del dominio facebook.com
+2025-05-28 17:25:57,589 - selenium_extractor - INFO - Extrayendo contenido de URL: https://www.facebook.com/diarioprimiciahyo/posts/1104289025055400 (tipo: facebook)
+2025-05-28 17:26:04,112 - selenium_extractor - WARNING - Facebook requiere inicio de sesión para URL: https://www.facebook.com/diarioprimiciahyo/posts/1104289025055400
+2025-05-28 17:26:06,541 - selenium_extractor - INFO - Extrayendo contenido de URL: https://www.facebook.com/watch/?v=760121703373699&rdid=Z11B0RAAwenqeo5x (tipo: facebook)
+2025-05-28 17:26:14,859 - selenium_extractor - WARNING - Facebook requiere inicio de sesión para URL: https://www.facebook.com/watch/?v=760121703373699&rdid=Z11B0RAAwenqeo5x
+2025-05-28 17:26:17,298 - content_deduplicator - INFO - Procesando 2 URLs del dominio gob.pe
+2025-05-28 17:26:17,299 - selenium_extractor - INFO - Extrayendo contenido de URL: https://comunicaciones.congreso.gob.pe/noticias/citaran-al-ministro-de-vivienda-para-informar-sobre-la-ejecucion-de-programas-en-su-sector/ (tipo: other)
+2025-05-28 17:26:29,222 - selenium_extractor - INFO - Extrayendo contenido de URL: https://www.gob.pe/institucion/vivienda/noticias/1166849-unidades-basicas-de-saneamiento-ubs-conoce-la-importancia-de-su-implementacion-en-zonas-rurales-del-pais (tipo: other)
+2025-05-28 17:26:39,114 - content_deduplicator - INFO - Procesando 2 URLs del dominio diariocorreo.pe
+2025-05-28 17:26:39,115 - selenium_extractor - INFO - Extrayendo contenido de URL: https://diariocorreo.pe/edicion/la-libertad/la-libertad-comuna-de-trujillo-rellena-zanjas-que-sedalib-dejo-abiertas-medio-ano-en-la-urb-el-recreo-noticia/ (tipo: news)
+2025-05-28 17:26:51,325 - selenium_extractor - INFO - Extrayendo contenido de URL: https://diariocorreo.pe/edicion/piura/piura-desabastecimiento-de-agua-en-cossio-del-pomar-es-por-trabajos-de-mantenimiento-en-pozo-noticia/ (tipo: news)
+2025-05-28 17:27:03,029 - content_deduplicator - INFO - Procesando 3 URLs del dominio com.pe
+2025-05-28 17:27:03,038 - selenium_extractor - INFO - Extrayendo contenido de URL: https://diariovoces.com.pe/emapa-san-martin-busca-solucion-a-problematica-de-redes-obsoletas-de-agua-desague-en-el-centro-de-tarapoto/ (tipo: news)
+2025-05-28 17:27:20,609 - selenium_extractor - INFO - Extrayendo contenido de URL: https://elregionalpiura.com.pe/index.php/region-piura/196-paita/69888-paita-eps-grau-y-mancomunidad-simon-rodriguez-refuerzan-coordinacion-para-optimizar-servicios-de-agua-y-alcantarillado (tipo: other)
+2025-05-28 17:27:40,108 - selenium_extractor - INFO - Extrayendo contenido de URL: https://ahora.com.pe/amarilis-financian-obra-de-agua-y-saneamiento-para-cerro-alegre-y-matibamba/ (tipo: other)
+2025-05-28 17:27:48,868 - content_deduplicator - INFO - Procesando 6 URLs del dominio imacorpplataforma.com
+2025-05-28 17:27:48,889 - content_deduplicator - INFO - Análisis completado en 194.69 segundos
+2025-05-28 17:27:48,889 - content_deduplicator - INFO - URLs totales: 33, Únicas: 32, En grupos: 0
+2025-05-28 17:27:48,890 - content_deduplicator - INFO - Se realizaron 21 comparaciones (0.1/seg), evitando 0
+2025-05-28 17:27:48,890 - content_deduplicator - INFO - Grupos de duplicados encontrados: 0
+2025-05-28 17:27:48,891 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\duplicates_analysis_15052025.json
+2025-05-28 17:27:48,892 - main_orchestrator - INFO - Análisis de duplicados completado: 0 URLs duplicadas filtradas
+2025-05-28 17:27:48,892 - main_orchestrator - INFO - URLs después de filtrar duplicados: 33
+2025-05-28 17:27:48,893 - main_orchestrator - INFO - Estadísticas de duplicados guardadas en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\duplicates_analysis_15052025.json
+2025-05-28 17:27:48,893 - main_orchestrator - INFO - --- Paso 3: Clasificando URLs ---
+2025-05-28 17:27:48,893 - url_classifier - INFO - URLClassifier inicializado con umbrales: {'facebook': 0.85, 'youtube': 0.95, 'news': 0.9, 'document': 0.98, 'image': 0.99, 'media': 0.95, 'government': 0.9, 'other': 0.85, 'default': 0.88}
+2025-05-28 17:27:48,894 - main_orchestrator - WARNING - Error en clasificación avanzada: 'dict' object has no attribute 'lower'. Usando clasificación estándar.
+2025-05-28 17:27:48,895 - lib.url_manager - INFO - Clasificación de 33 URLs:
+2025-05-28 17:27:48,896 - lib.url_manager - INFO -  - HTML: 25
+2025-05-28 17:27:48,896 - lib.url_manager - INFO -  - IMAGES: 6
+2025-05-28 17:27:48,896 - lib.url_manager - INFO -  - SOCIAL: 2
+2025-05-28 17:27:48,898 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Images\image_links_15052025_unprocessed.json
+2025-05-28 17:27:48,899 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Social\social_links_15052025_unprocessed.json
+2025-05-28 17:27:48,900 - main_orchestrator - INFO - --- Paso 4: Procesando Imágenes (Descarga) ---
+2025-05-28 17:27:48,900 - lib.image_processor - INFO - Iniciando descarga paralela de 6 imágenes para la fecha 15052025...
+2025-05-28 17:27:51,458 - lib.image_processor - INFO - Imagen 2 guardada como 'img_2_6fc71d07_15052025.jpg' en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Images\downloads\15052025 (549643 bytes)
+2025-05-28 17:27:51,544 - lib.image_processor - INFO - Imagen 4 guardada como 'img_4_12b9d563_15052025.jpg' en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Images\downloads\15052025 (335001 bytes)
+2025-05-28 17:27:51,766 - lib.image_processor - INFO - Imagen 6 guardada como 'img_6_7d72c87f_15052025.jpg' en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Images\downloads\15052025 (309622 bytes)
+2025-05-28 17:27:51,940 - lib.image_processor - INFO - Imagen 3 guardada como 'img_3_9738a0a3_15052025.jpg' en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Images\downloads\15052025 (430742 bytes)
+2025-05-28 17:27:52,424 - lib.image_processor - INFO - Imagen 1 guardada como 'img_1_72340440_15052025.jpg' en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Images\downloads\15052025 (1060605 bytes)
+2025-05-28 17:27:52,458 - lib.image_processor - INFO - Imagen 5 guardada como 'img_5_d4fb15f2_15052025.jpg' en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Images\downloads\15052025 (865678 bytes)
+2025-05-28 17:27:53,103 - lib.image_processor - INFO - Progreso descarga imágenes: 6/6 en 4.20 seg.
+2025-05-28 17:27:53,109 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Images\image_links_15052025.json
+2025-05-28 17:27:53,110 - lib.image_processor - INFO - Descarga de imágenes completada para 6/6 URLs en 4.21 segundos.
+2025-05-28 17:27:53,110 - main_orchestrator - INFO - Descarga de imágenes completada en 4.21 seg.
+2025-05-28 17:27:53,111 - lib.history_tracker - INFO - Añadidas 6 nuevas URLs al historial.
+2025-05-28 17:27:53,113 - lib.history_tracker - INFO - Historial guardado en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\history\processed_urls.json con 207 URLs.
+2025-05-28 17:27:53,114 - main_orchestrator - INFO - --- Paso 5: Procesando HTML (Scraping) ---
+2025-05-28 17:27:53,114 - lib.html_scraper - INFO - Iniciando scraping paralelo de 25 URLs...
+2025-05-28 17:27:58,129 - lib.html_scraper - INFO - Progreso: 20/25 URLs procesadas en 5.02 seg.
+2025-05-28 17:28:00,837 - lib.html_scraper - INFO - Progreso: 25/25 URLs procesadas en 7.72 seg.
+2025-05-28 17:28:00,849 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Out\scraped_texts_15052025.json
+2025-05-28 17:28:00,849 - lib.html_scraper - INFO - Scraping completado para 25/25 URLs en 7.74 segundos.
+2025-05-28 17:28:00,850 - lib.html_scraper - INFO - Resultados guardados en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Out\scraped_texts_15052025.json
+2025-05-28 17:28:00,850 - main_orchestrator - INFO - Scraping HTML completado en 7.74 seg.
+2025-05-28 17:28:00,851 - lib.history_tracker - INFO - Añadidas 24 nuevas URLs al historial.
+2025-05-28 17:28:00,853 - lib.history_tracker - INFO - Historial guardado en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\history\processed_urls.json con 231 URLs.
+2025-05-28 17:28:00,854 - main_orchestrator - INFO - --- Paso 6: Procesando Imágenes Descargadas (API) ---
+2025-05-28 17:28:02,524 - lib.api_client - ERROR - Error procesando tmpjh2luul2.jpg con Gemini API: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 4
+}
+]
+Traceback (most recent call last):
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\api_client.py", line 155, in extract_text_from_image
+    response = model.generate_content([self.prompt, img], request_options={'timeout': 180})
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+    ~~~~~~~~~~~~~~~~~~~^
+        exc,
+        ^^^^
+    ...<6 lines>...
+        timeout,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 144, in retry_target
+    result = target()
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 4
+}
+]
+2025-05-28 17:28:02,689 - lib.image_processor - WARNING - Error en prueba de API, pero no parece ser de configuración: API error: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 4
+}
+]
+2025-05-28 17:28:02,690 - lib.image_processor - INFO - Procesando 6 imágenes con API (batch_size=3, pausa=60s)
+2025-05-28 17:28:02,690 - lib.image_processor - INFO - Procesando batch 1 (3 imágenes)
+2025-05-28 17:28:02,691 - lib.image_processor - INFO - Procesando imagen con API: img_2_6fc71d07_15052025.jpg
+2025-05-28 17:28:03,972 - lib.api_client - ERROR - Error procesando img_2_6fc71d07_15052025.jpg con Gemini API: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 3
+}
+]
+Traceback (most recent call last):
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\api_client.py", line 155, in extract_text_from_image
+    response = model.generate_content([self.prompt, img], request_options={'timeout': 180})
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+    ~~~~~~~~~~~~~~~~~~~^
+        exc,
+        ^^^^
+    ...<6 lines>...
+        timeout,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 144, in retry_target
+    result = target()
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 3
+}
+]
+2025-05-28 17:28:05,395 - lib.image_processor - WARNING - Imagen img_2_6fc71d07_15052025.jpg marcada como PERMANENTEMENTE no procesable (demasiado pesada/compleja)
+2025-05-28 17:28:05,398 - lib.image_processor - WARNING - Error procesando imagen img_2_6fc71d07_15052025.jpg: API error: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 3
+}
+]
+2025-05-28 17:28:06,265 - lib.image_processor - INFO - Procesando imagen con API: img_4_12b9d563_15052025.jpg
+2025-05-28 17:28:07,059 - lib.api_client - ERROR - Error procesando img_4_12b9d563_15052025.jpg con Gemini API: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+}
+]
+Traceback (most recent call last):
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\api_client.py", line 155, in extract_text_from_image
+    response = model.generate_content([self.prompt, img], request_options={'timeout': 180})
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+    ~~~~~~~~~~~~~~~~~~~^
+        exc,
+        ^^^^
+    ...<6 lines>...
+        timeout,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 144, in retry_target
+    result = target()
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+}
+]
+2025-05-28 17:28:09,303 - lib.image_processor - WARNING - Imagen img_4_12b9d563_15052025.jpg marcada como PERMANENTEMENTE no procesable (demasiado pesada/compleja)
+2025-05-28 17:28:09,306 - lib.image_processor - WARNING - Error procesando imagen img_4_12b9d563_15052025.jpg: API error: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+}
+]
+2025-05-28 17:28:09,878 - lib.image_processor - INFO - Procesando imagen con API: img_6_7d72c87f_15052025.jpg
+2025-05-28 17:28:10,797 - lib.api_client - ERROR - Error procesando img_6_7d72c87f_15052025.jpg con Gemini API: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 56
+}
+]
+Traceback (most recent call last):
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\api_client.py", line 155, in extract_text_from_image
+    response = model.generate_content([self.prompt, img], request_options={'timeout': 180})
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+    ~~~~~~~~~~~~~~~~~~~^
+        exc,
+        ^^^^
+    ...<6 lines>...
+        timeout,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 144, in retry_target
+    result = target()
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 56
+}
+]
+2025-05-28 17:28:12,558 - lib.image_processor - WARNING - Imagen img_6_7d72c87f_15052025.jpg marcada como PERMANENTEMENTE no procesable (demasiado pesada/compleja)
+2025-05-28 17:28:12,562 - lib.image_processor - WARNING - Error procesando imagen img_6_7d72c87f_15052025.jpg: API error: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 56
+}
+]
+2025-05-28 17:28:13,487 - lib.image_processor - INFO - Pausa de 60s antes del siguiente batch...
+2025-05-28 17:29:13,487 - lib.image_processor - INFO - Procesando batch 2 (3 imágenes)
+2025-05-28 17:29:13,488 - lib.image_processor - INFO - Procesando imagen con API: img_3_9738a0a3_15052025.jpg
+2025-05-28 17:29:14,480 - lib.api_client - ERROR - Error procesando img_3_9738a0a3_15052025.jpg con Gemini API: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 52
+}
+]
+Traceback (most recent call last):
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\api_client.py", line 155, in extract_text_from_image
+    response = model.generate_content([self.prompt, img], request_options={'timeout': 180})
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+    ~~~~~~~~~~~~~~~~~~~^
+        exc,
+        ^^^^
+    ...<6 lines>...
+        timeout,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 144, in retry_target
+    result = target()
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 52
+}
+]
+2025-05-28 17:29:17,299 - lib.image_processor - WARNING - Imagen img_3_9738a0a3_15052025.jpg marcada como PERMANENTEMENTE no procesable (demasiado pesada/compleja)
+2025-05-28 17:29:17,302 - lib.image_processor - WARNING - Error procesando imagen img_3_9738a0a3_15052025.jpg: API error: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 52
+}
+]
+2025-05-28 17:29:18,279 - lib.image_processor - INFO - Procesando imagen con API: img_5_d4fb15f2_15052025.jpg
+2025-05-28 17:29:19,496 - lib.api_client - ERROR - Error procesando img_5_d4fb15f2_15052025.jpg con Gemini API: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 47
+}
+]
+Traceback (most recent call last):
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\api_client.py", line 155, in extract_text_from_image
+    response = model.generate_content([self.prompt, img], request_options={'timeout': 180})
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+    ~~~~~~~~~~~~~~~~~~~^
+        exc,
+        ^^^^
+    ...<6 lines>...
+        timeout,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 144, in retry_target
+    result = target()
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 47
+}
+]
+2025-05-28 17:29:21,469 - lib.image_processor - WARNING - Imagen img_5_d4fb15f2_15052025.jpg marcada como PERMANENTEMENTE no procesable (demasiado pesada/compleja)
+2025-05-28 17:29:21,472 - lib.image_processor - WARNING - Error procesando imagen img_5_d4fb15f2_15052025.jpg: API error: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 47
+}
+]
+2025-05-28 17:29:22,004 - lib.image_processor - INFO - Procesando imagen con API: img_1_72340440_15052025.jpg
+2025-05-28 17:29:23,360 - lib.api_client - ERROR - Error procesando img_1_72340440_15052025.jpg con Gemini API: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 44
+}
+]
+Traceback (most recent call last):
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\api_client.py", line 155, in extract_text_from_image
+    response = model.generate_content([self.prompt, img], request_options={'timeout': 180})
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+        request,
+        **request_options,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 293, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 153, in retry_target
+    _retry_error_helper(
+    ~~~~~~~~~~~~~~~~~~~^
+        exc,
+        ^^^^
+    ...<6 lines>...
+        timeout,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 212, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 144, in retry_target
+    result = target()
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 44
+}
+]
+2025-05-28 17:29:25,746 - lib.image_processor - WARNING - Imagen img_1_72340440_15052025.jpg marcada como PERMANENTEMENTE no procesable (demasiado pesada/compleja)
+2025-05-28 17:29:25,748 - lib.image_processor - WARNING - Error procesando imagen img_1_72340440_15052025.jpg: API error: ResourceExhausted - 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-1.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 44
+}
+]
+2025-05-28 17:29:26,709 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Images\downloads\15052025\texto_imagenes_api.json
+2025-05-28 17:29:26,710 - lib.image_processor - INFO - Resultados de API guardados en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Images\downloads\15052025\texto_imagenes_api.json
+2025-05-28 17:29:26,710 - lib.image_processor - INFO - Procesamiento API completado para 0/6 imágenes en 84.02 segundos.
+2025-05-28 17:29:26,711 - main_orchestrator - INFO - Procesamiento API de imágenes completado en 85.86 seg.
+2025-05-28 17:29:26,711 - main_orchestrator - INFO - --- Paso 7: Procesando URLs de Facebook ---
+2025-05-28 17:29:26,711 - main_orchestrator - INFO - Leyendo archivo social para la fecha 15052025: social_links_15052025_unprocessed.json
+2025-05-28 17:29:26,730 - main_orchestrator - INFO - Encontradas 2 URLs de Facebook para procesar
+2025-05-28 17:29:26,731 - main_orchestrator - INFO - Creado directorio para PDFs: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\15052025
+2025-05-28 17:29:26,731 - main_orchestrator - INFO - Asegurando que exista el directorio de salida: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output
+2025-05-28 17:29:26,731 - lib.facebook_processor - INFO - Iniciando procesamiento paralelo de 2 URLs de Facebook para la fecha 15052025...
+2025-05-28 17:29:26,733 - lib.facebook_processor - INFO - Procesando URL de Facebook (1): https://www.facebook.com/diarioprimiciahyo/posts/1104289025055400
+2025-05-28 17:29:26,734 - lib.facebook_processor - INFO - Procesando URL de Facebook (2): https://www.facebook.com/watch/?v=760121703373699&rdid=Z11B0RAAwenqeo5x
+2025-05-28 17:29:45,103 - lib.facebook_processor - INFO - PDF guardado exitosamente: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\15052025\15052025-1.pdf
+2025-05-28 17:29:46,922 - lib.facebook_processor - INFO - PDF guardado exitosamente: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\15052025\15052025-2.pdf
+2025-05-28 17:29:52,211 - lib.facebook_processor - INFO - Progreso Facebook: 2/2 en 25.48 seg.
+2025-05-28 17:29:52,215 - lib.facebook_processor - INFO - Resultados de Facebook guardados en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\facebook_results_15052025.json
+2025-05-28 17:29:52,216 - lib.facebook_processor - INFO - Procesamiento de Facebook completado: 2/2 exitosos en 25.48 segundos.
+2025-05-28 17:29:52,216 - main_orchestrator - INFO - Procesamiento de URLs de Facebook completado en 25.49 seg.
+2025-05-28 17:29:52,217 - lib.history_tracker - INFO - Añadidas 2 nuevas URLs al historial.
+2025-05-28 17:29:52,218 - lib.history_tracker - INFO - Historial guardado en C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\codigo\lib\history\processed_urls.json con 233 URLs.
+2025-05-28 17:29:52,219 - main_orchestrator - INFO - --- Paso 9: Extrayendo Texto de PDFs de Facebook ---
+2025-05-28 17:29:52,371 - lib.facebook_processor - INFO - Texto extraído exitosamente del PDF: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\15052025\15052025-1.pdf
+2025-05-28 17:29:52,514 - lib.facebook_processor - INFO - Texto extraído exitosamente del PDF: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\base\15052025\15052025-2.pdf
+2025-05-28 17:29:52,514 - lib.facebook_processor - INFO - Texto extraído de 2 PDFs de Facebook
+2025-05-28 17:29:52,514 - main_orchestrator - INFO - Extracción de texto de PDFs de Facebook completada en 0.30 seg.
+2025-05-28 17:29:52,515 - main_orchestrator - INFO - Texto extraído de 2 PDFs de Facebook
+2025-05-28 17:29:52,517 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\facebook_texts_15052025.json
+2025-05-28 17:29:52,518 - main_orchestrator - INFO - Textos de PDFs de Facebook guardados en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\facebook_texts_15052025.json
+2025-05-28 17:29:52,518 - main_orchestrator - INFO - --- Paso 10: Generando Estadísticas y Consolidando ---
+2025-05-28 17:29:52,520 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Stats\stats_15052025.json
+2025-05-28 17:29:52,521 - lib.file_manager - INFO - Estadísticas guardadas: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Stats\stats_15052025.json
+2025-05-28 17:29:52,521 - lib.file_manager - INFO - Contenido estadísticas: {'run_timestamp': '2025-05-28T17:29:52.518957', 'date_processed': '15052025', 'total_urls_in_pdf': 33, 'new_urls_processed_count': 33, 'history_total_urls': 233, 'categories': {'html': 25, 'images': 6, 'social': 2}, 'html_processing': {'attempted': 25, 'processed': 24, 'successful': 24, 'relevant (>=0.3)': 13, 'average_relevance': 0.3791666666666667}, 'image_processing': {'attempted_download': 6, 'successful_download': 6, 'attempted_api': 6, 'successful_api': 0}, 'facebook_processing': {'attempted': 2, 'successful': 2, 'extracted_texts': 2}, 'timings_seconds': {'pdf_extraction': 0.45, 'pdf_text_extraction': 0.3, 'image_download': 4.21, 'html_scraping': 7.74, 'image_api': 85.86, 'facebook_processing': 25.49, 'facebook_text_extraction': 0.3, 'stats_consolidation': 0.0}}
+2025-05-28 17:29:52,522 - main_orchestrator - INFO - Estadísticas generadas y guardadas en 0.00 seg.
+2025-05-28 17:29:52,523 - main_orchestrator - INFO - --- Paso 9: Verificando contenido HTML e imágenes existentes ---
+2025-05-28 17:29:52,556 - main_orchestrator - INFO - Texto del PDF cargado para consolidación desde: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Out\scraped_pdf_15052025\pdf_text_15052025.json
+2025-05-28 17:29:52,561 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\consolidated_15052025.json
+2025-05-28 17:29:52,561 - main_orchestrator - INFO - Resultados consolidados guardados en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\consolidated_15052025.json
+2025-05-28 17:29:52,562 - main_orchestrator - INFO - --- Paso 12: Realizando Limpieza Semántica ---
+2025-05-28 17:29:52,624 - main_orchestrator - INFO - Realizando limpieza semántica...
+2025-05-28 17:29:52,625 - semantic_cleaner - INFO - Iniciando limpieza semántica del archivo consolidado...
+2025-05-28 17:29:52,625 - semantic_cleaner - INFO - Extraídos 23 textos de PDF
+2025-05-28 17:29:52,626 - semantic_cleaner - INFO - Extraídos 24 textos de HTML
+2025-05-28 17:29:52,626 - semantic_cleaner - INFO - Extraídos 0 textos de imágenes
+2025-05-28 17:29:52,627 - semantic_cleaner - INFO - Extraídos 2 textos de Facebook
+2025-05-28 17:29:58,223 - semantic_cleaner - INFO - Se identificaron 46 grupos de textos similares
+2025-05-28 17:29:58,223 - semantic_cleaner - INFO - Se seleccionaron 46 textos representativos
+2025-05-28 17:29:58,224 - semantic_cleaner - INFO - Limpieza semántica completada con éxito
+2025-05-28 17:29:58,224 - main_orchestrator - INFO - Guardando JSON limpio en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\clean\clean_15052025.json
+2025-05-28 17:29:58,228 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\clean\clean_15052025.json
+2025-05-28 17:29:58,228 - main_orchestrator - INFO - Convirtiendo a formato Markdown y guardando en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\clean\clean_15052025.md
+2025-05-28 17:29:58,235 - markdown_converter - INFO - Archivo Markdown guardado en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\clean\clean_15052025.md
+2025-05-28 17:29:58,238 - lib.file_manager - INFO - Datos guardados en JSON: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Stats\stats_15052025.json
+2025-05-28 17:29:58,238 - lib.file_manager - INFO - Estadísticas guardadas: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\input\Stats\stats_15052025.json
+2025-05-28 17:29:58,239 - lib.file_manager - INFO - Contenido estadísticas: {'run_timestamp': '2025-05-28T17:29:52.518957', 'date_processed': '15052025', 'total_urls_in_pdf': 33, 'new_urls_processed_count': 33, 'history_total_urls': 233, 'categories': {'html': 25, 'images': 6, 'social': 2}, 'html_processing': {'attempted': 25, 'processed': 24, 'successful': 24, 'relevant (>=0.3)': 13, 'average_relevance': 0.3791666666666667}, 'image_processing': {'attempted_download': 6, 'successful_download': 6, 'attempted_api': 6, 'successful_api': 0}, 'facebook_processing': {'attempted': 2, 'successful': 2, 'extracted_texts': 2}, 'timings_seconds': {'pdf_extraction': 0.45, 'pdf_text_extraction': 0.3, 'image_download': 4.21, 'html_scraping': 7.74, 'image_api': 85.86, 'facebook_processing': 25.49, 'facebook_text_extraction': 0.3, 'stats_consolidation': 0.0, 'semantic_cleaning': 5.67}}
+2025-05-28 17:29:58,239 - main_orchestrator - INFO - Limpieza semántica completada en 5.67 seg.
+2025-05-28 17:29:58,240 - main_orchestrator - INFO - --- Paso 12.1: Integrando textos de Facebook en archivos limpios ---
+2025-05-28 17:29:58,240 - facebook_extractor_fix - INFO - Ruta del proyecto: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1
+2025-05-28 17:29:58,241 - facebook_extractor_fix - INFO - Buscando archivo de Facebook en: C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\facebook_texts_15052025.json
+2025-05-28 17:29:58,272 - facebook_extractor_fix - INFO - Estructura de los datos de Facebook: https://www.facebook.com/diarioprimiciahyo/posts/1104289025055400
+2025-05-28 17:29:58,273 - facebook_extractor_fix - INFO - Claves en la primera entrada: ['extracted_text', 'pdf_path', 'processed_date']
+2025-05-28 17:29:58,297 - facebook_extractor_fix - INFO - Sección de Facebook añadida al archivo C:\Users\emers\Documents\SUNASS_CAMI_CENTRO\DEV_SUNASS\NewsAgentv1\output\clean\clean_15052025.md
+2025-05-28 17:29:58,298 - facebook_extractor_fix - INFO - Se han añadido 2 textos de Facebook al archivo limpio
+2025-05-28 17:29:58,298 - main_orchestrator - INFO - Textos de Facebook integrados correctamente en archivos limpios
+2025-05-28 17:29:58,298 - main_orchestrator - INFO - --- Limpieza Final ---
+2025-05-28 17:29:58,299 - main_orchestrator - INFO - ==================================================
+2025-05-28 17:29:58,299 - main_orchestrator - INFO - PIPELINE FINALIZADO en 324.64 segundos.
+2025-05-28 17:29:58,299 - main_orchestrator - INFO - ==================================================

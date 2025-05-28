@@ -111,6 +111,17 @@ async def urls_extraidas(namefile: str):
         return JSONResponse(status_code=500, content={"error": str(e)})
 
 
+#test produccion
+@app.get("/debug/archivos")
+async def listar_archivos():
+    carpeta = os.path.join("input", "in")
+    try:
+        archivos = os.listdir(carpeta)
+        return {"archivos": archivos}
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+
 #----agregando CORS para permitir peticiones desde cualquier origen
 from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(

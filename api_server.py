@@ -2,7 +2,7 @@
 import os
 import sys
 import csv
-from fastapi import FastAPI, UploadFile, WebSocket, File
+from fastapi import FastAPI, UploadFile, BackgroundTasks, File
 from fastapi.responses import JSONResponse,FileResponse
 from pydantic import BaseModel
 
@@ -49,7 +49,7 @@ class ProcesarPDFRequest(BaseModel):
     pauseSeconds: int
 
 @app.post("/procesar_pdf/")
-async def procesar_pdf(req: ProcesarPDFRequest):
+async def procesar_pdf(req: ProcesarPDFRequest, background_tasks: BackgroundTasks):
     """
     Procesa el PDF subido usando los parámetros personalizados y retorna el análisis en JSON.
     """
@@ -58,24 +58,39 @@ async def procesar_pdf(req: ProcesarPDFRequest):
     if not os.path.exists(file_path):
         return JSONResponse(status_code=404, content={"error": "Archivo no encontrado"})
 
-    try:
-        # Aquí debes adaptar run_pipeline o tu función orquestadora para aceptar estos parámetros
-        setup_environment(project_root)
-        resultado = run_pipeline(
-            req.filename
-        )
-        # Si run_pipeline guarda el JSON en disco, puedes cargarlo y devolverlo:
-        output_path = os.path.join("output/clean", f"clean_{req.filename}.json")
-        if os.path.exists(output_path):
-            import json
-            with open(output_path, "r", encoding="utf-8") as f:
-                resultado_json = json.load(f)
-            return JSONResponse(content=resultado_json)
-        else:
-            # Si run_pipeline retorna el resultado directamente
-            return JSONResponse(content=resultado)
-    except Exception as e:
-        return JSONResponse(status_code=500, content={"error": str(e)})
+    def task(): #tarea en segundo plano
+        try:
+            # Aquí debes adaptar run_pipeline o tu función orquestadora para aceptar estos parámetros
+            setup_environment(project_root)
+            resultado = run_pipeline(req.filename)
+
+            # Si run_pipeline guarda el JSON en disco, puedes cargarlo y devolverlo:
+            output_path = os.path.join("output/clean", f"clean_{req.filename}.json")
+            if os.path.exists(output_path):
+                import json
+                with open(output_path, "r", encoding="utf-8") as f:
+                    resultado_json = json.load(f)
+                return JSONResponse(content=resultado_json)
+            else:
+                # Si run_pipeline retorna el resultado directamente
+                return JSONResponse(content=resultado)
+        except Exception as e:
+            return JSONResponse(status_code=500, content={"error": str(e)})
+        
+    #añadiendo tareas en segundo plano
+    background_tasks.add_task(task)
+    return JSONResponse(content={"message": "Procesamiento iniciado"})
+
+
+#----consultar estado de procesamiento
+@app.get("/resultado_pdf/{filename}")
+async def resultado_pdf(filename: str):
+    md_path = os.path.join("output/clean", f"clean_{filename}.md")
+    if os.path.exists(md_path):
+        return JSONResponse(status_code=200, content={"ready": True}) 
+    else:
+        return JSONResponse(status_code=404, content={"error": "Resultado no disponible aún, procesamiento en curso"})
+
 
 #----download markdown file
 @app.get("/download_md/{filename}")

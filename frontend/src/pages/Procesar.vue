@@ -56,15 +56,32 @@
             Procesar
           </button>
 
-          <!-- <div v-if="processing" class="w-full mt-6">
-            <div class="w-full bg-gray-200 rounded-full h-4">
-              <div
-                class="bg-green-500 h-4 rounded-full transition-all duration-300"
-                :style="{ width: mdProgress + '%' }"
-              ></div>
-            </div>
-            <p class="text-green-500 mt-2">Procesando... {{ mdProgress }}%</p>
-          </div> -->
+          <div id="spinner" style="display: none">
+            <!-- Puedes usar un simple SVG o cualquier otro contenido -->
+            <svg
+              class="animate-spin h-8 w-8 text-blue-600"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                class="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="4"
+              ></circle>
+              <path
+                class="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v8H4z"
+              ></path>
+            </svg>
+            <span>Esperando resultado...</span>
+          </div>
+
+
         </div>
         <p class="text-gray-500 mt-4 text-sm md:text-base text-center">
           Formatos soportados : PDF
@@ -80,8 +97,6 @@
         </div>
         <p class="text-green-500 mt-2">Procesando... {{ mdProgress }}%</p>
       </div> -->
-
-
 
       <div v-if="processed" class="bg-white rounded-lg shadow-sm p-6">
         <div class="text-center">
@@ -142,13 +157,14 @@
           >
         </div>
       </div>
+      
       <!-- show error message -->
       <div v-if="estado && estado.status === 'error'" class="mt-4 text-red-700">
         {{ estado.message }}
       </div>
 
       <!-- codigo de testeo -->
-      <div v-if="estado && estado.message" class="mt-4 text-blue-700">
+      <!-- <div v-if="estado && estado.message" class="mt-4 text-blue-700">
         {{ estado.message }} <br />
         <button
           @click="consultarEstado"
@@ -156,7 +172,7 @@
         >
           Consultar Estado
         </button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -168,6 +184,7 @@ import {
   descargarMarkdown,
   obtenerUrlsExtraidas,
   upload_pdf_with_progress,
+  obtenerResultadoPdf,
 } from "../api"; // importing modules from API.js
 
 //reactives variables
@@ -227,7 +244,7 @@ async function handleFileChange(event) {
  */
 async function iniciarProcesamiento() {
   processing.value = true;
-
+  iniciarConsultaResultado(fileName.value); //iniciar spinner
   try {
     const resultado = await procesar_pdf({
       filename: fileName.value,
@@ -338,6 +355,57 @@ function nameFileValidate(name) {
     return false;
   }
   return true;
+}
+
+/*
+ * Function to get the result of the PDF
+ * @param {string} filename - The name of the file
+ * @param {number} delayMs - The delay in milliseconds
+ * @param {number} maxIntentos - The maximum number of attempts
+ * @returns {Promise<string>} - The result of the PDF
+ */
+async function esperarResultadoPdf(filename, delayMs = 15000, maxIntentos = 48) {
+  showSpinner(); // comenzar a mostrar el spinner
+  let intentos = 0;
+  try {
+    while (intentos < maxIntentos) {
+      try {
+        const resultado = await obtenerResultadoPdf(filename);
+        return resultado; // Resultado obtenido, se sale del bucle
+      } catch (err) {
+        console.log("Esperando resultado...", err.message);
+        await new Promise(resolve => setTimeout(resolve, delayMs));
+        intentos++;
+      }
+    }
+    throw new Error("Tiempo de espera agotado para obtener el resultado del PDF");
+  } finally {
+    hideSpinner(); // Asegura que el spinner se oculte en cualquier caso
+  }
+}
+
+function showSpinner() {
+  const spinner = document.getElementById("spinner");
+  if (spinner) {
+    spinner.style.display = "flex"; // O 'block', según tu diseño
+  }
+}
+
+function hideSpinner() {
+  const spinner = document.getElementById("spinner");
+  if (spinner) {
+    spinner.style.display = "none";
+  }
+}
+
+async function iniciarConsultaResultado(fileName) {
+  try {
+    const resultado = await esperarResultadoPdf(fileName.value); // reemplaza "ejemplo" por el nombre base del PDF
+    console.log("Resultado obtenido:", resultado);
+    // Aquí puedes actualizar el DOM o notificar al usuario con el resultado
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
 }
 
 </script>

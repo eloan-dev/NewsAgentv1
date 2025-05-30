@@ -1,77 +1,77 @@
-# Archivos y carpetas temporales de Python
-__pycache__/
-*.py[cod]
-*$py.class
-.env
-*.so
-.venv/
-venv/
+# # Archivos y carpetas temporales de Python
+# __pycache__/
+# *.py[cod]
+# *$py.class
+# .env
+# *.so
+# .venv/
+# venv/
 
-# Archivos del sistema
-.DS_Store
-Thumbs.db
+# # Archivos del sistema
+# .DS_Store
+# Thumbs.db
 
-# Archivos de notebook
-.ipynb_checkpoints/
+# # Archivos de notebook
+# .ipynb_checkpoints/
 
-# Archivos de IDE y editor
-.idea/
-.vscode/
-*.swp
-*.swo
+# # Archivos de IDE y editor
+# .idea/
+# .vscode/
+# *.swp
+# *.swo
 
-# Archivos de caché
-/cache/
+# # Archivos de caché
+# /cache/
 
-# Base directory - incluir carpeta pero excluir subdirectorios
-/base/*
-!/base/.gitkeep
+# # Base directory - incluir carpeta pero excluir subdirectorios
+# /base/*
+# !/base/.gitkeep
 
-# Logs - incluir todo el contenido
-!/logs/
-!/logs/*
+# # Logs - incluir todo el contenido
+# !/logs/
+# !/logs/*
 
-# Directorio de salida - incluir todo el contenido
-!/output/
-!/output/**
+# # Directorio de salida - incluir todo el contenido
+# !/output/
+# !/output/**
 
-# Credenciales y claves API (importante para seguridad)
-/credentials/*
-!credentials/.gitkeep
+# # Credenciales y claves API (importante para seguridad)
+# /credentials/*
+# !credentials/.gitkeep
 
-# Mantener estructura de carpetas vacías
-!*/.gitkeep
+# # Mantener estructura de carpetas vacías
+# !*/.gitkeep
 
-# Excluir todo el contenido de input por defecto
-/input/*
+# # Excluir todo el contenido de input por defecto
+# /input/*
 
-# Permitir la estructura de directorios principal
-!/input/
-!/input/Images/
-!/input/In/
-!/input/Out/
-!/input/Social/
-!/input/Stats/
+# # Permitir la estructura de directorios principal
+# !/input/
+# !/input/Images/
+# !/input/In/
+# !/input/Out/
+# !/input/Social/
+# !/input/Stats/
 
-# Permitir subdirectorios específicos pero excluir su contenido
-!/input/Images/downloads/
-!/input/Images/downloads/**/
-!/input/Out/scraped_pdf_**/
+# # Permitir subdirectorios específicos pero excluir su contenido
+# !/input/Images/downloads/
+# !/input/Images/downloads/**/
+# !/input/Out/scraped_pdf_**/
 
-# Excluir explícitamente tipos de archivos en todas las subcarpetas de input
-/input/**/*.json
-/input/**/*.csv
-/input/**/*.jpg
-/input/**/*.jpeg
-/input/**/*.png
-/input/**/*.gif
-/input/**/*.mp3
-/input/**/*.mp4
-/input/**/*.pdf
+# # Excluir explícitamente tipos de archivos en todas las subcarpetas de input
+# /input/**/*.json
+# /input/**/*.csv
+# /input/**/*.jpg
+# /input/**/*.jpeg
+# /input/**/*.png
+# /input/**/*.gif
+# /input/**/*.mp3
+# /input/**/*.mp4
+# /input/**/*.pdf
 
-# Mantener estructura de carpetas vacías
-!/**/.gitkeep
-# RAG - incluir todo el contenido
-!/RAG/
-!/RAG/*
-node_modules
+# # Mantener estructura de carpetas vacías
+# !/**/.gitkeep
+# # RAG - incluir todo el contenido
+# !/RAG/
+# !/RAG/*
+# node_modules

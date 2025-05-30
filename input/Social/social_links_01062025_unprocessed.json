@@ -1,0 +1,24 @@
+[
+    {
+        "Page": 1,
+        "URL": "https://www.youtube.com/watch?v=56xuYTqMico",
+        "Rect": [
+            450.5125427246094,
+            193.002685546875,
+            552.3776245117188,
+            203.12591552734375
+        ],
+        "Context": "para evitar la propagación de cloro. (Radio Nacional YouTube,"
+    },
+    {
+        "Page": 1,
+        "URL": "https://www.facebook.com/share/p/1681SUAj36/",
+        "Rect": [
+            404.95794677734375,
+            290.43878173828125,
+            493.53631591796875,
+            300.56201171875
+        ],
+        "Context": "Sur Noticias Perú, HBA Noticias, El O cias.pe, Andina Noticias Puno, radio A del Sur Juliaca, radio Tv Exclusiva,"
+    }
+]

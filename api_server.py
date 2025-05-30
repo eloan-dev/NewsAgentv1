@@ -198,3 +198,16 @@ def list_files(start_path: str = "."):
             })
 
     return JSONResponse(content={"files": file_structure})
+
+
+#--- crea las carpetas
+class CarpetaRequest(BaseModel):
+    path: str
+
+@app.post("/crear-carpeta")
+def crear_carpeta(req: CarpetaRequest):
+    try:
+        os.makedirs(req.path, exist_ok=True)
+        return {"path": req.path, "created": True, "message": "Carpeta creada o ya existía."}
+    except Exception as e:
+        return {"path": req.path, "created": False, "error": str(e)}

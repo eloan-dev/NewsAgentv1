@@ -172,22 +172,29 @@ app.add_middleware(
 
 
 #testeo
-@app.get("/check_path/")
-def check_path(path: str = Query(..., description="Ruta a verificar, por ejemplo: 'base'")):
+@app.get("/list_files/")
+def list_files(start_path: str = "."):
     """
-    Verifica si una ruta existe en el sistema de archivos.
+    Lista todos los archivos y carpetas desde una ruta base.
 
     Args:
-        path (str): Ruta relativa o absoluta a verificar.
+        start_path (str): Ruta base desde la cual listar (por defecto ".")
 
     Returns:
-        dict: Información sobre la existencia de la ruta y si es un directorio.
+        dict: Estructura de archivos y carpetas.
     """
-    exists = os.path.exists(path)
-    is_dir = os.path.isdir(path) if exists else False
+    file_structure = []
 
-    return JSONResponse(content={
-        "path": path,
-        "exists": exists,
-        "is_directory": is_dir
-    })
+    for root, dirs, files in os.walk(start_path):
+        for name in dirs:
+            file_structure.append({
+                "path": os.path.join(root, name),
+                "type": "directory"
+            })
+        for name in files:
+            file_structure.append({
+                "path": os.path.join(root, name),
+                "type": "file"
+            })
+
+    return JSONResponse(content={"files": file_structure})

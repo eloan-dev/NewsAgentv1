@@ -79,6 +79,8 @@ def run_pipeline(custom_date_str=None):
     """
     Ejecuta el pipeline completo de extracción y procesamiento.
     """
+    print("ejecutando pipeline")
+
     start_time_pipeline = time.time()
     today_date_for_filename = custom_date_str if custom_date_str else datetime.today().strftime('%d%m%Y')
     logger.info("==================================================")

@@ -54,12 +54,28 @@ class ProcesarPDFRequest(BaseModel):
     prompt: str
     batchSize: int
     pauseSeconds: int
+#---Ejecución en segundo plano
+def ejecutar_procesamiento(req: ProcesarPDFRequest):
+    print("ingresando a ejecutar procesamiento") #test de ejecucion
+    global processing_flag
+    try:
+        setup_environment(project_root)
+        run_pipeline(req.filename)
+
+        #ejecucion terminada correctamente
+        print(f"Procesamiento terminado para: {req.filename}")
+    except Exception as e:
+        print(f"[ERROR] Falló el procesamiento de {req.filename}: {e}")
+    finally:
+        with processing_lock:
+            processing_flag = False
 
 @app.post("/procesar_pdf/")
 async def procesar_pdf(req: ProcesarPDFRequest, background_tasks: BackgroundTasks):
     """
     Procesa el PDF subido usando los parámetros personalizados y retorna el análisis en JSON.
     """
+    print(f"[INFO] Recibido request para procesar: {req.filename}") #---------test
 
     global processing_flag
 
@@ -68,11 +84,13 @@ async def procesar_pdf(req: ProcesarPDFRequest, background_tasks: BackgroundTask
     if not os.path.exists(file_path):
         return JSONResponse(status_code=404, content={"error": "Archivo no encontrado"})
     
+    print("buscando archivo json en output/clean") #----test
     #ruta archivo json 
     json_path = os.path.join("output/clean", f"clean_{req.filename}.json")
     
     # Si ya existe el resultado, no proceses de nuevo
     if os.path.exists(json_path):
+        print("ingresando a ya procesado") #----test
         with open(json_path, "r", encoding="utf-8") as f:
             data = json.load(f)
         return JSONResponse(content={
@@ -81,7 +99,9 @@ async def procesar_pdf(req: ProcesarPDFRequest, background_tasks: BackgroundTask
             "data": data
         })
     else:
+
         with processing_lock:
+            print("ingresando a ver bandera") #----test
             if processing_flag:
                 return JSONResponse(
                     status_code=429,
@@ -90,7 +110,8 @@ async def procesar_pdf(req: ProcesarPDFRequest, background_tasks: BackgroundTask
             processing_flag = True
 
         # Ejecutar el proceso en segundo plano
-        background_tasks.add_task(ejecutar_procesamiento, req.filename)
+        print("ingresando a ejecutar procesamiento en segundo plano")
+        background_tasks.add_task(ejecutar_procesamiento, req)
 
         return JSONResponse(content={
             "message": "Procesamiento iniciado. Puedes consultar el resultado en unos minutos.",
@@ -128,22 +149,6 @@ async def urls_extraidas(namefile: str):
         return JSONResponse(content={"urls": urls})
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
-
-
-#---Ejecución en segundo plano
-def ejecutar_procesamiento(filename: str):
-    global processing_flag
-    try:
-        setup_environment(project_root)
-        run_pipeline(filename)
-
-        #ejecucion terminada correctamente
-        print(f"Procesamiento terminado para: {filename}")
-    except Exception as e:
-        print(f"[ERROR] Falló el procesamiento de {filename}: {e}")
-    finally:
-        with processing_lock:
-            processing_flag = False
 
 #---resultado pdf
 @app.get("/resultado_pdf/{filename}")

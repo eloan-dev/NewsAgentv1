@@ -2,7 +2,7 @@
 import os
 import sys
 import csv
-from fastapi import FastAPI, UploadFile, BackgroundTasks, File
+from fastapi import FastAPI, UploadFile, BackgroundTasks, Query, File
 from fastapi.responses import JSONResponse,FileResponse
 from pydantic import BaseModel
 import csv
@@ -170,3 +170,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+#testeo
+@app.get("/check_path/")
+def check_path(path: str = Query(..., description="Ruta a verificar, por ejemplo: 'base'")):
+    """
+    Verifica si una ruta existe en el sistema de archivos.
+
+    Args:
+        path (str): Ruta relativa o absoluta a verificar.
+
+    Returns:
+        dict: Información sobre la existencia de la ruta y si es un directorio.
+    """
+    exists = os.path.exists(path)
+    is_dir = os.path.isdir(path) if exists else False
+
+    return JSONResponse(content={
+        "path": path,
+        "exists": exists,
+        "is_directory": is_dir
+    })

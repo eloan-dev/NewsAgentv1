@@ -5,8 +5,15 @@ import csv
 from fastapi import FastAPI, UploadFile, BackgroundTasks, File
 from fastapi.responses import JSONResponse,FileResponse
 from pydantic import BaseModel
+import csv
+import json
+from threading import Lock
 
+# Bandera de control de las tareas de segundo plano y avance de procesamiento
+processing_flag = False
+processing_lock = Lock()
 
+# Asegurarse de que el directorio 'lib' esté en el path para imports
 project_root = os.path.dirname(os.path.abspath(__file__))
 code_dir = os.path.join(project_root, "codigo")
 if code_dir not in sys.path:
@@ -53,44 +60,43 @@ async def procesar_pdf(req: ProcesarPDFRequest, background_tasks: BackgroundTask
     """
     Procesa el PDF subido usando los parámetros personalizados y retorna el análisis en JSON.
     """
+
+    global processing_flag
+
     # Ruta del archivo PDF subido
     file_path = os.path.join("base", req.filename + ".pdf")
     if not os.path.exists(file_path):
         return JSONResponse(status_code=404, content={"error": "Archivo no encontrado"})
-
-    def task(): #tarea en segundo plano
-        try:
-            # Aquí debes adaptar run_pipeline o tu función orquestadora para aceptar estos parámetros
-            setup_environment(project_root)
-            resultado = run_pipeline(req.filename)
-
-            # Si run_pipeline guarda el JSON en disco, puedes cargarlo y devolverlo:
-            output_path = os.path.join("output/clean", f"clean_{req.filename}.json")
-            if os.path.exists(output_path):
-                import json
-                with open(output_path, "r", encoding="utf-8") as f:
-                    resultado_json = json.load(f)
-                return JSONResponse(content=resultado_json)
-            else:
-                # Si run_pipeline retorna el resultado directamente
-                return JSONResponse(content=resultado)
-        except Exception as e:
-            return JSONResponse(status_code=500, content={"error": str(e)})
-        
-    #añadiendo tareas en segundo plano
-    background_tasks.add_task(task)
-    return JSONResponse(content={"message": "Procesamiento iniciado"})
-
-
-#----consultar estado de procesamiento
-@app.get("/resultado_pdf/{filename}")
-async def resultado_pdf(filename: str):
-    md_path = os.path.join("output/clean", f"clean_{filename}.md")
-    if os.path.exists(md_path):
-        return JSONResponse(status_code=200, content={"ready": True}) 
+    
+    #ruta archivo json 
+    json_path = os.path.join("output/clean", f"clean_{req.filename}.json")
+    
+    # Si ya existe el resultado, no proceses de nuevo
+    if os.path.exists(json_path):
+        with open(json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return JSONResponse(content={
+            "message": "Archivo ya procesado anteriormente.",
+            "status": "ya_procesado",
+            "data": data
+        })
     else:
-        return JSONResponse(status_code=404, content={"error": "Resultado no disponible aún, procesamiento en curso"})
+        with processing_lock:
+            if processing_flag:
+                return JSONResponse(
+                    status_code=429,
+                    content={"error": "Ya hay un procesamiento en curso. Por favor, espera unos minutos."}
+                )
+            processing_flag = True
 
+        # Ejecutar el proceso en segundo plano
+        background_tasks.add_task(ejecutar_procesamiento, req.filename)
+
+        return JSONResponse(content={
+            "message": "Procesamiento iniciado. Puedes consultar el resultado en unos minutos.",
+            "status": "en_proceso"
+        })
+        
 
 #----download markdown file
 @app.get("/download_md/{filename}")
@@ -102,8 +108,6 @@ async def download_md(filename: str):
 
 
 #---- send to URLs extracted
-import csv
-
 @app.get("/urls_extraidas/{namefile}")
 async def urls_extraidas(namefile: str):
     """
@@ -126,18 +130,34 @@ async def urls_extraidas(namefile: str):
         return JSONResponse(status_code=500, content={"error": str(e)})
 
 
-#test produccion
-@app.get("/debug/archivos")
-async def listar_archivos():
-    carpeta = os.path.join("input", "In")
-    abs_carpeta = os.path.abspath(carpeta)
-    if not os.path.exists(carpeta):
-        return {"error": "No existe la carpeta", "carpeta": carpeta, "abs_carpeta": abs_carpeta}
+#---Ejecución en segundo plano
+def ejecutar_procesamiento(filename: str):
+    global processing_flag
     try:
-        archivos = os.listdir(carpeta)
-        return {"archivos": archivos, "carpeta": carpeta, "abs_carpeta": abs_carpeta}
+        setup_environment(project_root)
+        run_pipeline(filename)
+
+        #ejecucion terminada correctamente
+        print(f"Procesamiento terminado para: {filename}")
     except Exception as e:
-        return {"error": str(e), "carpeta": carpeta, "abs_carpeta": abs_carpeta}
+        print(f"[ERROR] Falló el procesamiento de {filename}: {e}")
+    finally:
+        with processing_lock:
+            processing_flag = False
+
+#---resultado pdf
+@app.get("/resultado_pdf/{filename}")
+async def resultado_pdf(filename: str):
+    json_path = os.path.join("output/clean", f"clean_{filename}.json")
+    if os.path.exists(json_path):
+        with open(json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return JSONResponse(content=data)
+    else:
+        return JSONResponse(
+            status_code=202, 
+            content={"status": "en_proceso", "mensaje": "El procesamiento aún no ha terminado."}
+        )
 
 
 #----agregando CORS para permitir peticiones desde cualquier origen
@@ -149,3 +169,4 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+

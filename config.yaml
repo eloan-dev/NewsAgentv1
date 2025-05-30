@@ -1,4 +1,4 @@
 api:
   prompt_key: "detallado"
   batch_size: 3
-  pause_seconds: 60
+  pause_seconds: 30

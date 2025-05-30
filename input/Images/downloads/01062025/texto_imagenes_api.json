@@ -1,0 +1,12 @@
+[
+    {
+        "image_filename": "img_1_03c052c9_01062025.mp4",
+        "processed_date": "30052025",
+        "extracted_text": "",
+        "error": "Image file too large",
+        "_cache_error": true,
+        "_permanent_error": true,
+        "_error_reason": "Imagen demasiado grande (>10MB)",
+        "file_size_mb": 319.65
+    }
+]

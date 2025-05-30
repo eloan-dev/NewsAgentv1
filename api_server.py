@@ -25,7 +25,6 @@ from codigo.main3 import run_pipeline
 app = FastAPI(title="NewsAgent API")
 
 
-
 #--------ENDPOINTS DE PDF-------------------
 #---- upload pdf
 @app.post("/upload_pdf/")
@@ -56,14 +55,11 @@ class ProcesarPDFRequest(BaseModel):
     pauseSeconds: int
 #---Ejecución en segundo plano
 def ejecutar_procesamiento(req: ProcesarPDFRequest):
-    print("ingresando a ejecutar procesamiento") #test de ejecucion
     global processing_flag
     try:
         setup_environment(project_root)
         run_pipeline(req.filename)
-
-        #ejecucion terminada correctamente
-        print(f"Procesamiento terminado para: {req.filename}")
+        print("Ejecución terminada exitosamente") #----------TEST
     except Exception as e:
         print(f"[ERROR] Falló el procesamiento de {req.filename}: {e}")
     finally:
@@ -98,25 +94,24 @@ async def procesar_pdf(req: ProcesarPDFRequest, background_tasks: BackgroundTask
             "status": "ya_procesado",
             "data": data
         })
-    else:
+   
+    with processing_lock:
+        print("ingresando a ver bandera") #----test
+        if processing_flag:
+            return JSONResponse(
+                status_code=429,
+                content={"error": "Ya hay un procesamiento en curso. Por favor, espera unos minutos."}
+            )
+        processing_flag = True
 
-        with processing_lock:
-            print("ingresando a ver bandera") #----test
-            if processing_flag:
-                return JSONResponse(
-                    status_code=429,
-                    content={"error": "Ya hay un procesamiento en curso. Por favor, espera unos minutos."}
-                )
-            processing_flag = True
+    # Ejecutar el proceso en segundo plano
+    print("ingresando a ejecutar procesamiento en segundo plano")
+    background_tasks.add_task(ejecutar_procesamiento, req)
 
-        # Ejecutar el proceso en segundo plano
-        print("ingresando a ejecutar procesamiento en segundo plano")
-        background_tasks.add_task(ejecutar_procesamiento, req)
-
-        return JSONResponse(content={
-            "message": "Procesamiento iniciado. Puedes consultar el resultado en unos minutos.",
-            "status": "en_proceso"
-        })
+    return JSONResponse(content={
+        "message": "Procesamiento iniciado. Puedes consultar el resultado en unos minutos.",
+        "status": "en_proceso"
+    })
         
 
 #----download markdown file
@@ -135,6 +130,7 @@ async def urls_extraidas(namefile: str):
     Devuelve la lista de URLs extraídas leyendo el archivo CSV correspondiente.
     La URL está en la segunda columna del CSV.
     """
+
     csv_path = os.path.join("input", "In", f"links_extracted_{namefile}.csv")
     if not os.path.exists(csv_path):
         return JSONResponse(status_code=404, content={"error": "Archivo CSV no encontrado"})
@@ -216,3 +212,12 @@ def crear_carpeta(req: CarpetaRequest):
         return {"path": req.path, "created": True, "message": "Carpeta creada o ya existía."}
     except Exception as e:
         return {"path": req.path, "created": False, "error": str(e)}
+    
+
+#---verificar estado del markdown
+@app.get("/verificar_md/{filename}")
+async def verificar_md(filename: str):
+    md_path = os.path.join("output/clean", f"clean_{filename}.json")
+    if os.path.exists(md_path):
+        return JSONResponse(content={"disponible": True})
+    return JSONResponse(status_code=202, content={"disponible": False})

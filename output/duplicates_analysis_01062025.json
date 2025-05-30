@@ -1,7 +1,7 @@
 {
-    "timestamp": "2025-05-30T10:25:19.628907",
-    "original_count": 15,
-    "unique_count": 3,
-    "duplicates_removed": 12,
-    "percentage_reduced": 80.0
+    "timestamp": "2025-05-30T18:25:05.139143",
+    "original_count": 58,
+    "unique_count": 29,
+    "duplicates_removed": 29,
+    "percentage_reduced": 50.0
 }

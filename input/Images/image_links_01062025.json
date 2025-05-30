@@ -1,0 +1,11 @@
+{
+    "https://imacorpplataforma.com/wp-content/uploads/2025/05/27-05-2025-RADIO-NACIONAL-ENT-A-MARTIN-CASTRO-COORDINADOR-DE-LA-DIRECCION-DE-USUARIOS-DE-LA-SUNASS.mp4": {
+        "context": "enfermedades y garant Radio Nacional, Radio",
+        "error": "Content type 'video/mp4' is not an image",
+        "content_type": "video/mp4",
+        "filepath": "C:\\Users\\emers\\Documents\\SUNASS_CAMI_CENTRO\\DEV_SUNASS\\NewsAgentv1\\input\\Images\\downloads\\01062025\\img_1_03c052c9_01062025.mp4",
+        "filename": "img_1_03c052c9_01062025.mp4",
+        "size": 335173270,
+        "download_timestamp": "2025-05-30T18:30:00.340912"
+    }
+}
